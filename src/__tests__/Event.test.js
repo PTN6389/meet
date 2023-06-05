@@ -1,11 +1,14 @@
 import React from "react";
 import { shallow } from 'enzyme';
 import Event from "../Event";
+import { mockData } from "../mockData";
+
 
 describe('<Event /> component', () => {
-    let EventWrapper;
+    let EventWrapper, eventDetails;
     beforeAll(() => {
-        EventWrapper = shallow(<Event />);
+        eventDetails = mockData[0];
+        EventWrapper = shallow(<Event eventDetails={eventDetails} />);
     });
 
     test('render event summary', () => {
@@ -22,6 +25,11 @@ describe('<Event /> component', () => {
 
     test('render event description', () => {
         expect(EventWrapper.find('.description')).toHaveLength(1);
+    });
+
+    test('render summary event details onClick', () => {
+        EventWrapper.find('.showDetails').simulate('click');
+        expect(EventWrapper.find('.summary').text()).toBe(`${eventDetails.summary}`);
     });
 
 })
