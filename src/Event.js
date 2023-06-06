@@ -8,7 +8,7 @@ class Event extends Component {
 
         handleShowDetails() {
             alert('show details');
-        }
+        };
 
         return (
             <div>
