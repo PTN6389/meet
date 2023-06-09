@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import  React, { Component } from 'react';
 
 class Event extends Component {
     state = {
@@ -18,14 +18,14 @@ class Event extends Component {
     }
 
     render() {  
-        const { eventDetails } = this.props;
+        const { event } = this.props;
         
         return (
            <div>
                 <h3 className="summary"></h3>
                 <p className="date"></p>
-                <p className="link">{eventDetails.htmlLink}</p>    
-                <p className="description">{eventDetails.description}</p>
+                <p className="link">{event.htmlLink}</p>    
+                <p className="description">{event.description}</p>
                 <button className="showDetails" 
                        onClick={() => this.handleShowDetails()} >Show Details</button>
                 <button className="hideDetails" 

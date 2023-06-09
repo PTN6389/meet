@@ -5,10 +5,10 @@ import { mockData } from "../mockData";
 
 
 describe('<Event /> component', () => {
-    let EventWrapper, eventDetails;
+    let EventWrapper, event;
     beforeAll(() => {
-        eventDetails = mockData[0];
-        EventWrapper = shallow(<Event eventDetails = {eventDetails} />);
+        event = mockData[0];
+        EventWrapper = shallow(<Event event = {event} />);
     });
 
     test('render event summary', () => {
@@ -36,8 +36,8 @@ describe('<Event /> component', () => {
         const eventObject = { target: {value: true }};
         EventWrapper.find('.showDetails').simulate('click', eventObject);
         expect(EventWrapper.state('showDetails')).toBe(true);
-        expect(EventWrapper.find('.link').text()).toBe(eventDetails.htmlLink);
-        expect(EventWrapper.find('.description').text()).toBe(eventDetails.description);
+        expect(EventWrapper.find('.link').text()).toBe(event.htmlLink);
+        expect(EventWrapper.find('.description').text()).toBe(event.description);
     })
 
     test('change to hide event details', () => {
