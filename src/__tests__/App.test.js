@@ -5,7 +5,8 @@ import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
 import { extractLocations, getEvents } from '../api';
-import { mockData } from '../mockData';
+import {mockData} from '../mockData';
+
 
 describe('<App /> component', () => {
     let AppWrapper;
@@ -59,5 +60,14 @@ describe('<App /> integration', () => {
         expect(AppWrapper.state('events')).toEqual(eventsToShow);
         AppWrapper.unmount();
       });
+
+      test('get list of all events when user selects "See all cities"', async () => {
+        const AppWrapper = mount(<App />);
+        const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
+        await suggestionItems.at(suggestionItems.length - 1).simulate('click');
+        const allEvents = await getEvents();
+        expect(AppWrapper.state('events')).toEqual(allEvents);
+        AppWrapper.unmount(); 
+      })
 
 });
