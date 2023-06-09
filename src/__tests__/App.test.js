@@ -5,7 +5,7 @@ import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
 import { extractLocations, getEvents } from '../api';
-import mockData from '../mockData';
+import { mockData } from '../mockData';
 
 describe('<App /> component', () => {
     let AppWrapper;
@@ -58,6 +58,6 @@ describe('<App /> integration', () => {
         const eventsToShow = allEvents.filter(event => event.location === selectedCity);
         expect(AppWrapper.state('events')).toEqual(eventsToShow);
         AppWrapper.unmount();
-    });
+      });
 
 });
