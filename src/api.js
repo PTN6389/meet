@@ -85,7 +85,7 @@ export const getAccessToken = async () => {
         const searchParams = new URLSearchParams(window.location.search);
         const code = await searchParams.get("code");
         if(!code) {
-            const results = await.axios.get(
+            const results = await axios.get(
                 "https://z2dchblvwa.execute-api.us-east-2.amazonaws.com/dev/api/get-auth-url"
             );
             const { authUrl } = results.data;
