@@ -24,6 +24,7 @@ class Event extends Component {
            <div className="event">
                 <h3 className="summary">{event.summary}</h3>
                 <p className="date">Start Date/Time: {event.start.dateTime}</p>
+                <p className="location">{event.location}</p>
                 <p className="link">{event.htmlLink}</p>    
                 <p className="description">{event.description}</p>
                 <button className="showDetails details-btn" 
