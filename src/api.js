@@ -6,7 +6,7 @@
  */
 import { mockData } from "./mockData";
 import axios from  'axios';
-import { NProgress } from "nprogress";
+import NProgress from "nprogress";
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
