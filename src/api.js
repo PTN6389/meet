@@ -4,9 +4,11 @@
  *  then removes all duplicates by creating another new array using the spread operator and spreading a Set
  * The Set will remove all duplicates
  */
-//import axios from 'axios';
-import NProgress from "nprogress";
+
 import { mockData } from "./mockData";
+import axios from 'axios';
+import NProgress from "nprogress";
+
 
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
