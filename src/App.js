@@ -10,13 +10,16 @@ import { getEvents, extractLocations } from './api';
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
+    eventCount: 32
   }
 
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
-      this.setState({ events, locations: extractLocations(events) });
+      if(this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
     })
   }
 
@@ -24,13 +27,14 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?
         events :
         events.filter((event) => event.location === location);
       this.setState({
-        events: locationEvents
+        events: locationEvents,
+        eventCount: eventCount
       });
     });
   }
@@ -40,7 +44,7 @@ class App extends Component {
     return (
     <div className="App">
       <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-      <NumberOfEvents />
+      <NumberOfEvents eventCount={this.state.eventCount}/>
       <EventList events={this.state.events}/>
       
     </div>

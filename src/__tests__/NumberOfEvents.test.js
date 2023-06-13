@@ -9,19 +9,19 @@ describe ('<NumberOfEvents /> component', () => {
     });
 
     test('render number of events displayed text box', () => {
-        expect(NumberOfEventsWrapper.find('.numberDisplayed')).toHaveLength(1);
+        expect(NumberOfEventsWrapper.find('.numberOfEvents')).toHaveLength(1);
     });
 
     test('render default number of events',()=>{
-        const numberDisplayed = NumberOfEventsWrapper.state('numberDisplayed');
-        expect(NumberOfEventsWrapper.find('.numberDisplayed').prop('value')).toBe(numberDisplayed);
+        const eventCount = NumberOfEventsWrapper.state('eventCount');
+        expect(NumberOfEventsWrapper.find('.numberOfEvents').prop('value')).toBe(eventCount);
     });
 
     test('render state change when number of events displayed changes', () => {
-        NumberOfEventsWrapper.setState({numberDisplayed: 32});
+        NumberOfEventsWrapper.setState({eventCount: 32});
         const eventObject = { target: {value: 10}};
-        NumberOfEventsWrapper.find('.numberDisplayed').simulate('change', eventObject);
-        expect(NumberOfEventsWrapper.state('numberDisplayed')).toBe(10);
+        NumberOfEventsWrapper.find('.numberOfEvents').simulate('change', eventObject);
+        expect(NumberOfEventsWrapper.state('eventCount')).toBe(10);
     });
 
 })
