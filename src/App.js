@@ -5,13 +5,15 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
+import { InfoAlert } from './Alert';
 
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventCount: 32
+    eventCount: 32,
+    infoText: ''
   }
 
   componentDidMount() {
@@ -52,6 +54,7 @@ class App extends Component {
       <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
       <NumberOfEvents eventCount={this.state.eventCount} updateEvents={this.updateEvents}/>
       <EventList events={this.state.events}/>
+      <InfoAlert text={this.state.text} />
       
     </div>
   );
