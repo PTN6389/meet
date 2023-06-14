@@ -8,6 +8,7 @@ class NumberOfEvents extends Component {
     handleInputChanged = (event) => {
         const eventCount = event.target.value;
         this.setState({ eventCount: eventCount });
+        this.props.updateEvents(undefined, eventCount);
     }
 
     render() {

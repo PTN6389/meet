@@ -83,9 +83,8 @@ describe('<App /> integration', () => {
         const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
         const selectedEventCount = { target: {value: 2 }};
         await NumberOfEventsWrapper.instance().handleInputChanged(selectedEventCount);
-        const allEvents = await getEvents();
-        const eventsToShow = allEvents.filter(event => event.eventCount === selectedEventCount);
-        expect (AppWrapper.state('events')).toEqual(eventsToShow);
+        
+        expect (AppWrapper.state('events').length).toEqual(2);
         AppWrapper.unmount();
       });
 

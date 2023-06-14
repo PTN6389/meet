@@ -9,7 +9,7 @@ defineFeature(feature, test => {
     test('When user has not specified a number, 32 is the default number', ({ given, when, then }) => {
         let NumberOfEventsWrapper;
         given('that I see a list of events displayed', () => {
-            NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+            NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() =>{}} />);
         });
 
         when('I have not specified the number of events I want to see', () => {
@@ -24,7 +24,7 @@ defineFeature(feature, test => {
     test('User can change the number of events they want to see', ({ given, when, then }) => {
         let NumberOfEventsWrapper;
         given('that I see a list of events displayed', () => {
-            NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+            NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() =>{}} />);
         });
 
         when('I enter the number of events I want to see', () => {
